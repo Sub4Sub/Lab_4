@@ -1,0 +1,25 @@
+{
+  "name": "lab-4",
+  "version": "0.0.0",
+  "description": "Lab 4 in webd6201",
+  "main": "index.js",
+  "repository": "https://github.com/Sub4Sub/Lab_4.git",
+  "author": "Brett Tindall <sub4subm8.exe@gmail.com>",
+  "license": "MIT",
+  "engines": {
+      "node": "^15.0.0",
+      "npm": "^6.1.0"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0"
+  }
+}
