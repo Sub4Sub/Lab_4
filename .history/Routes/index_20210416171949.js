@@ -38,12 +38,12 @@ router.get('/projects', function(req, res, next) {
 
 /* GET register page. */
 router.get('/register', function(req, res, next) {
-  res.render('index', { title: 'Register', page: 'register' });
+  res.render('index', { title: 'Register', page: 'home' });
 });
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  res.render('index', { title: 'Login', page: 'login' });
+  res.render('index', { title: 'Login', page: 'home' });
 });
 
 module.exports = router;
