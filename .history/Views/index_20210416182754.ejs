@@ -13,14 +13,14 @@
     <script src="./Scripts/namespace.js"></script>
 
 </head>
-<body id="<%= page %>" style="background-image: url('./assets/images/background.jpg')">
+<body id="<%= page %>">
     <!-- Main Header -->
     <header>
       <%- include('./components/header'); -%>
     </header>
 
     <!-- Main Content -->
-    <main class="container">
+    <main class="container" style="background-image: url('./img/background.jpg')">
       <%- include('./content/' + page); -%>
     </main>
 

@@ -175,8 +175,6 @@
               localStorage.setItem(key, contact.serialize());
             }
           }
-
-          location.href = '/contact';
         });
     }
 
@@ -349,7 +347,6 @@
 
       $("#loginButton").on("click", function() 
       {
-        //location.href = "/home"
         performLogin();
       });
 
@@ -547,23 +544,13 @@
 
     function Start()
     {
-       let pageID = $("body")[0].getAttribute("id");
+        console.log("App Started...");
+
+        loadHeader(router.ActiveLink);
       
-      switch(pageID)
-      {
-        case 'contact':
-          displayContact();
-          break;
-        case 'contact-list':
-          displayContactList();
-          break;
-        case 'edit':
-          displayEdit();
-          break;
-        case 'login':
-          displayLogin();
-          break;
-      }
+        loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
+
+        loadFooter();
     }
 
     window.addEventListener("load", Start);

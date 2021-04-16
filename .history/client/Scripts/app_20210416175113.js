@@ -349,7 +349,6 @@
 
       $("#loginButton").on("click", function() 
       {
-        //location.href = "/home"
         performLogin();
       });
 
@@ -547,23 +546,7 @@
 
     function Start()
     {
-       let pageID = $("body")[0].getAttribute("id");
-      
-      switch(pageID)
-      {
-        case 'contact':
-          displayContact();
-          break;
-        case 'contact-list':
-          displayContactList();
-          break;
-        case 'edit':
-          displayEdit();
-          break;
-        case 'login':
-          displayLogin();
-          break;
-      }
+       
     }
 
     window.addEventListener("load", Start);

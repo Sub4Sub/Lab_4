@@ -48,12 +48,12 @@ router.get('/login', function(req, res, next) {
 
 /* GET login page. */
 router.get('/edit', function(req, res, next) {
-  res.render('index', { title: 'Edit', page: 'edit' });
+  res.render('index', { title: 'Login', page: 'login' });
 });
 
 /* GET login page. */
-router.get('/task-list', function(req, res, next) {
-  res.render('index', { title: 'Task List', page: 'task-list' });
+router.get('/login', function(req, res, next) {
+  res.render('index', { title: 'Login', page: 'login' });
 });
 
 module.exports = router;

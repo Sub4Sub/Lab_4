@@ -349,8 +349,8 @@
 
       $("#loginButton").on("click", function() 
       {
-        //location.href = "/home"
-        performLogin();
+        location.href = "/home"
+        //performLogin();
       });
 
       $("#password").on("keypress", function(event)

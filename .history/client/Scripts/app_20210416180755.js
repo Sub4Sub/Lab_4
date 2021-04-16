@@ -349,7 +349,7 @@
 
       $("#loginButton").on("click", function() 
       {
-        //location.href = "/home"
+        location.href = "/home"
         performLogin();
       });
 

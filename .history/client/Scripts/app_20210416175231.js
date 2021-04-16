@@ -349,7 +349,6 @@
 
       $("#loginButton").on("click", function() 
       {
-        //location.href = "/home"
         performLogin();
       });
 
@@ -551,18 +550,7 @@
       
       switch(pageID)
       {
-        case 'contact':
-          displayContact();
-          break;
-        case 'contact-list':
-          displayContactList();
-          break;
-        case 'edit':
-          displayEdit();
-          break;
-        case 'login':
-          displayLogin();
-          break;
+
       }
     }
 

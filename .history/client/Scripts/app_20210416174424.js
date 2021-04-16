@@ -8,89 +8,7 @@
 
 ((core) =>
 {
-    /**
-     * Inject the Navigation bar into the Header element and highlight the active link based on the pageName parameter
-     *
-     * @param {string} pageName
-     */
-    function loadHeader(pageName)
-    {
-      // inject the Header
-      $.get("./Views/components/header.html", function(data)
-      {
-        $("header").html(data); // load the navigation bar
 
-        toggleLogin(); // add login / logout and secure links
-
-        $(`#${pageName}`).addClass("active"); // highlight active link
-
-        // loop through each anchor tag in the unordered list and 
-        // add an event listener / handler to allow for 
-        // content injection
-        $("a").on("click", function()
-        { 
-          $(`#${router.ActiveLink}`).removeClass("active"); // removes highlighted link
-          router.ActiveLink = $(this).attr("id");
-          loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
-          $(`#${router.ActiveLink}`).addClass("active"); // applies highlighted link to new page
-          history.pushState({},"", router.ActiveLink); // this replaces the url displayed in the browser
-        });
-
-        // make it look like each nav item is an active link
-        $("a").on("mouseover", function()
-        {
-          $(this).css('cursor', 'pointer');
-        });
-      });
-    }
-
-    /**
-     * Inject page content in the main element 
-     *
-     * @param {string} pageName
-     * @param {function} callback
-     * @returns {void}
-     */
-    function loadContent(pageName, callback)
-    {
-      // inject content
-      $.get(`./Views/content/${pageName}.html`, function(data)
-      {
-        $("main").html(data);
-
-        callback();
-      });
-      
-    }
-
-    function loadFooter()
-    {
-      // inject the Footer
-      $.get("./Views/components/footer.html", function(data)
-      {
-        $("footer").html(data);
-      });
-    }
-
-    function displayHome()
-    {
-        
-    }
-
-    function displayAbout()
-    {
-
-    }
-
-    function displayProjects()
-    {
-
-    }
-
-    function displayServices()
-    {
-
-    }
 
     function testFullName()
     {
@@ -349,7 +267,6 @@
 
       $("#loginButton").on("click", function() 
       {
-        //location.href = "/home"
         performLogin();
       });
 
@@ -547,23 +464,13 @@
 
     function Start()
     {
-       let pageID = $("body")[0].getAttribute("id");
+        console.log("App Started...");
+
+        loadHeader(router.ActiveLink);
       
-      switch(pageID)
-      {
-        case 'contact':
-          displayContact();
-          break;
-        case 'contact-list':
-          displayContactList();
-          break;
-        case 'edit':
-          displayEdit();
-          break;
-        case 'login':
-          displayLogin();
-          break;
-      }
+        loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
+
+        loadFooter();
     }
 
     window.addEventListener("load", Start);
