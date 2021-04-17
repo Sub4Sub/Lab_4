@@ -42,7 +42,7 @@ router.get('/contact', function(req, res, next) {
 /* GET contact list page. */
 router.get('/contact-list', function(req, res, next) {
   //res.render('index', { title: 'Contact List', page: 'contact-list' });
-  Contact.find(function (err, contacts) {
+  Contact.default.find(function (err, contacts) {
     if (err) {
         return console.error(err);
     }

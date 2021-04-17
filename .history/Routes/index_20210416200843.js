@@ -1,17 +1,11 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 var express = require('express');
 var router = express.Router();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessDeletePage = exports.ProcessAddPage = exports.ProcessEditPage = exports.DisplayAddPage = exports.DisplayEditPage = exports.DisplayContactListPage = void 0;
-//const contact_1 = __importDefault(require("../Models/contact"));
-const index_1 = require("../Util/index");
-
 
 // Contact Model
 const ContactModel = require("../Models/contact");
+const Contact = ContactModel.Model;
+
+const ContactModel = __importStar(require("../Models/contact"));
 const Contact = ContactModel.Model;
 
 /* GET home page. */
@@ -40,13 +34,13 @@ router.get('/contact', function(req, res, next) {
 });
 
 /* GET contact list page. */
-router.get('/contact-list', function(req, res, next) {
+exports.router.get('/contact-list', function(req, res, next) {
   //res.render('index', { title: 'Contact List', page: 'contact-list' });
   Contact.find(function (err, contacts) {
     if (err) {
         return console.error(err);
     }
-    res.render('index', { title: 'Contact List', page: 'contact-list', contacts: contacts, displayName: index_1.UserDisplayName(req) });
+    res.render('index', { title: 'Contact List', page: 'contact-list', contacts: contacts, displayName: 'temp' });
 });
 });
 

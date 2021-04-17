@@ -2,13 +2,23 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const contact_list_1 = require("../Controllers/contact-list");
+const router = express_1.default.Router();
+exports.default = router;
+const index_1 = require("../Util/index");
+router.get('/', index_1.AuthGuard, contact_list_1.DisplayContactListPage);
+router.get('/edit/:id', index_1.AuthGuard, contact_list_1.DisplayEditPage);
+router.get('/add', index_1.AuthGuard, contact_list_1.DisplayAddPage);
+router.post('/edit/:id', index_1.AuthGuard, contact_list_1.ProcessEditPage);
+router.post('/add', index_1.AuthGuard, contact_list_1.ProcessAddPage);
+router.get('/delete/:id', index_1.AuthGuard, contact_list_1.ProcessDeletePage);
+
+
+
 var express = require('express');
 var router = express.Router();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessDeletePage = exports.ProcessAddPage = exports.ProcessEditPage = exports.DisplayAddPage = exports.DisplayEditPage = exports.DisplayContactListPage = void 0;
-//const contact_1 = __importDefault(require("../Models/contact"));
-const index_1 = require("../Util/index");
-
 
 // Contact Model
 const ContactModel = require("../Models/contact");
@@ -46,7 +56,7 @@ router.get('/contact-list', function(req, res, next) {
     if (err) {
         return console.error(err);
     }
-    res.render('index', { title: 'Contact List', page: 'contact-list', contacts: contacts, displayName: index_1.UserDisplayName(req) });
+    res.render('index', { title: 'Contact List', page: 'contact-list', contacts: contacts, displayName: 'temp' });
 });
 });
 

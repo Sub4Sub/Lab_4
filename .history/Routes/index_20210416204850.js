@@ -46,7 +46,7 @@ router.get('/contact-list', function(req, res, next) {
     if (err) {
         return console.error(err);
     }
-    res.render('index', { title: 'Contact List', page: 'contact-list', contacts: contacts, displayName: index_1.UserDisplayName(req) });
+    res.render('index', { title: 'Contact List', page: 'contact-list', contacts: contacts, displayName: UserDisplayName(req) });
 });
 });
 
